@@ -6,4 +6,17 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   constructor() { }
+
+  // #### THIS IS FOR THE DROPBOX API, 'DOCUMENTATION': https://www.dropbox.com/developers/documentation/javascript#tutorial ####
+
+  /*require('isomorphic-fetch'); // or another library of choice.
+  var Dropbox = require('dropbox').Dropbox;
+  var dbx = new Dropbox({ accessToken: 'YOUR_ACCESS_TOKEN_HERE' });
+  dbx.filesListFolder({path: ''})
+.then(function(response) {
+    console.log(response);
+  })
+.catch(function(error) {
+    console.log(error);
+  });*/
 }
