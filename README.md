@@ -4,6 +4,6 @@
 
 #https://ecateamgroup.slack.com/messages/CAPJYE0HJ/details/?
 
-#Mind Map Architecture - https://bubbl.us/08945335164572076
+#Mind Map Architecture - https://bubbl.us/9104304
 
 #Dropbox SDK JS Documentation - https://www.dropbox.com/developers/documentation/javascript#overview
