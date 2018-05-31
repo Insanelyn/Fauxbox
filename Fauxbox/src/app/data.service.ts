@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
 
-  constructor() { }
+  constructor() {
+  }
+
 
   // #### THIS IS FOR THE DROPBOX API, 'DOCUMENTATION': https://www.dropbox.com/developers/documentation/javascript#tutorial ####
 
