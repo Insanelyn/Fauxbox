@@ -10,20 +10,10 @@ img {
   margin-bottom: 10em;
   color: #f7fff6;
 }
-
-a {
-  color: white;
-
-}
-
-
-input#email{
-  background-color: white;
-  color: #00ceff;
-}
-
-
 input:-webkit-autofill {
   -webkit-text-fill-color: #0093e2;
   box-shadow: inset 0 0 0 1000px white !important
+}
+a {
+  color: white;
 }
