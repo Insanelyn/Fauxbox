@@ -1,7 +1,11 @@
-body {
+.container-fluid {
   background-color: #00ceff;
-  height: 100%;
+  height: 100vh;
   width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 img {
   width: 17em;
@@ -16,4 +20,15 @@ input:-webkit-autofill {
 }
 a {
   color: white;
+}
+form {
+  width:30%;
+}
+
+label {
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
