@@ -1,4 +1,17 @@
+
 img {
   width: 12em;
   height:12em;
 }
+ul>li{
+  text-decoration: none;
+  list-style-type: none;
+  margin-top: 1em;
+  }
+li>a {
+  color: #e27508;
+}
+button{
+  margin: 30%;
+}
+

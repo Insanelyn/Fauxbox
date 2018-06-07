@@ -2,19 +2,23 @@
 a{
  text-decoration: none;
   color: #00193e;
-
-
 }
 img {
   width:14em;
   height:7em;
   margin: 1em;
 }
-nav{
-  height: 1%;
-}
 .breadcrumb{
   background-color: rgba(0, 207, 255, 0.04);
-  opacity: 2;
+  margin-bottom: 0;
 }
+app-nav{
+  box-shadow: 2px 4px rgba(0, 148, 227, 0.10);
+  border-radius: 2%;
+  margin-top: 0;
+  padding-top: 3%;
 
+}
+#main{
+  margin: 2%;
+}
