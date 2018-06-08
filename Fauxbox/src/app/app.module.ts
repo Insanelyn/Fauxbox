@@ -28,8 +28,8 @@ import {Interceptor} from "./interceptor";
 
 const appRoutes: Routes = [
   {path:'login', component: LoginComponent},
-  {path:'', /*canActivate:[AuthService],*/ component: ListComponent},
-  {path:'list',/* canActivate:[AuthService],*/ component: ListComponent},
+  {path:'', canActivate:[AuthService], component: ListComponent},
+  {path:'**', canActivate:[AuthService], component: ListComponent},
 ];
 
 @NgModule({

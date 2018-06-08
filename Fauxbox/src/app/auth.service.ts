@@ -1,43 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-/*import {CanActivate} from "@angular/router";*/
-import {Router} from "@angular/router";
+import {CanActivate} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService/* implements CanActivate*/{
+export class AuthService implements CanActivate {
 
-  private user =  null;
+  constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  constructor(private http: HttpClient, private router: Router) { }
-
- /* canActivate(): boolean{
-    if(this.user !== null){
+ canActivate(): boolean{
+    if(localStorage.getItem("token") !== 'The+user+chose+not+to+give+your+app+access+to+their+Dropbox+account.'){
       return true;
     }else{
       this.router.navigate(['login']);
       return false;
     }
-  }*/
-
-  login(credentials){
-    const ob = this.http.post('/login', credentials);
-    ob.subscribe((res: any)=> {
-      if (res.token) {
-        this.user = {id: 1}
-      }
-    });
-    return ob;
   }
 
+  login(){
+    const authUrl = 'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=783ptecvulgyh5q&redirect_uri=http://localhost:4200/login';
+    return window.location.href = authUrl;
+  }
   logout(){
-    this.user = null;
+    localStorage.clear();
     this.router.navigate(['login']);
+    console.log(localStorage.getItem('token'))
   }
-
-
-
   auth(){
 
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  files = [];
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
+  ngOnInit() {
+    this.dataService.getFiles(this.router.url);
+
+    this.dataService.stream.subscribe((files) => {
+      this.files = files;
+      console.error('List:', files)
+    });
+  }
 }
