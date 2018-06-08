@@ -1,0 +1,34 @@
+.container-fluid {
+  background-color: #00ceff;
+  height: 100vh;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+img {
+  width: 17em;
+}
+#new-user {
+  margin-bottom: 10em;
+  color: #f7fff6;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: #0093e2;
+  box-shadow: inset 0 0 0 1000px white !important
+}
+a {
+  color: white;
+}
+form {
+  width:30%;
+}
+
+label {
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
