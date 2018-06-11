@@ -22,3 +22,13 @@ app-nav{
 #main{
   margin: 2%;
 }
+#staticHeader{
+  display: flex;
+  justify-content:space-around;
+}
+i{
+  color: #00ceff;;
+}
+span{
+  margin: 0 5px 0 5px;
+}

@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
             const authTokenParams = params[0].split('=');
             const authToken = authTokenParams[1];
             localStorage.setItem('token', authToken);
+            if(localStorage.getItem('token') === 'The+user+chose+not+to+give+your+app+access+to+their+Dropbox+account.'){
+              localStorage.clear();
+            }
             this.router.navigate(['']);
           } else{
             this.router.navigate(['login']);

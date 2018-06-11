@@ -10,7 +10,7 @@ export class AuthService implements CanActivate {
   constructor(private router: Router) { }
 
  canActivate(): boolean{
-    if(localStorage.getItem('token') !== 'The+user+chose+not+to+give+your+app+access+to+their+Dropbox+account.'){
+    if(localStorage.getItem('token') !== null){
       return true;
     }else{
       this.router.navigate(['login']);

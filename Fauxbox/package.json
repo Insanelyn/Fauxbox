@@ -27,6 +27,7 @@
     "dropbox": "^4.0.5",
     "firebase": "^5.0.4",
     "font-awesome": "^4.7.0",
+    "moment": "^2.22.2",
     "npm": "^6.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
