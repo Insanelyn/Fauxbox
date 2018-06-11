@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
-    //http://localhost:4200/login#access_token=CrNuQALkjhAAAAAAAAAAObiCDbWiIauBrH-c0KRx4Lu4Molxvvi-pr1siUTVGN98&token_type=bearer&uid=1178068784&account_id=dbid%3AAADbloCBHnwZvy_ptnI7lZn1ZkyK7MSMTFc
         this.activatedRoute.url.subscribe(() => {
           const currentUrl = this.router.url;
           if(currentUrl.indexOf('&') !== -1){
@@ -34,8 +33,4 @@ export class LoginComponent implements OnInit {
   login(){
    this.authService.login();
   }
-  logout(){
-
-  }
-
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { DataService } from "../data.service";
 import {DomSanitizer} from '@angular/platform-browser';
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-list',
@@ -12,9 +11,12 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class ListComponent implements OnInit {
 
   files = [];
-  constructor(private dataService: DataService, private router: Router, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
 
-  }
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.activatedRoute.url.subscribe(() =>{
@@ -30,16 +32,13 @@ export class ListComponent implements OnInit {
               file.name.toLowerCase().endsWith('png') ||
               file.name.toLowerCase().endsWith('svg')){
               file.filetype = 'image';
-              console.log('bild', file.path_display)
             }else{
               file.filetype = 'text'
           }
         }
       });
     });
-
   }
-
 
   formatBytes(bytes,decimals) {
     if(bytes == 0) return '0 Bytes';

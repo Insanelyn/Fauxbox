@@ -1,6 +1,6 @@
 <img src="../../assets/logowhite.png">
 <nav><ol class="breadcrumb">
-  <li class="breadcrumb-item active"><i class="fa fa-home"></i> <a href="list.component.html"> Home</a></li>
+  <li class="breadcrumb-item active"><a href=""><i class="fa fa-home"></i> Home</a></li>
 </ol></nav>
 
 <div class="row container-fluid">
@@ -16,14 +16,15 @@
         <li *ngFor="let file of files" class="list-group-item d-flex w-100 justify-content-between">
             <p *ngIf="file['.tag'] ==='folder'">
               <i class="fa fa-folder"></i>
-              {{ file.name }}
-
+              <a routerLink="{{ file.path_lower }}">{{ file.name }}</a>
             </p>
 
             <p *ngIf="file['.tag'] ==='file'">
               <i *ngIf="file.filetype === 'text'" class="fa fa-file"></i>
-              <img *ngIf="file.filetype === 'image'" [src]=sanitize(file.thumbnail)>
-              <span>{{ file.name }} </span>
+              <img style="max-width: 50px; max-height: 50px" class="img-responsive img-rounded" *ngIf="file.filetype === 'image'" [src]=sanitize(file.thumbnail)>
+              <span>
+               <a href=""> {{ file.name }} </a>
+              </span>
               <span>
                 {{ formatBytes(file.size) }}
               </span>
@@ -31,7 +32,6 @@
                 {{timeStampFix(file.client_modified)}}
               </span>
             </p>
-
         </li>
       </div>
     </ul>

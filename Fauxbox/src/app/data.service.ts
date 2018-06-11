@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import "isomorphic-fetch";
 import {BehaviorSubject, Observable} from 'rxjs';
 
-
-/*const { Dropbox } = require('dropbox');*/
-
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +34,6 @@ export class DataService {
             entry.name.toLowerCase().endsWith('svg')){
               return this.dbx.filesGetThumbnail({ path: entry.path_lower })
                 .then((image) =>{
-                console.log(image);
                   entry.thumbnail = URL.createObjectURL(image.fileBlob);
                   return entry;
                 });
