@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { DataService } from "../data.service";
 
 @Component({
@@ -10,13 +10,14 @@ import { DataService } from "../data.service";
 export class ListComponent implements OnInit {
 
   files = [];
-  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private dataService: DataService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.dataService.getFiles(this.router.url);
-
-    this.dataService.stream.subscribe((files) => {
+    this.activatedRoute.url.subscribe(() =>{
+      this.dataService.getFiles(this.router.url);
+    });
+    this.dataService.stream.subscribe((files: any) => {
       this.files = files;
       console.error('List:', files)
     });

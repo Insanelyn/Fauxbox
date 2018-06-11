@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import "isomorphic-fetch";
 import {BehaviorSubject, Observable} from 'rxjs';
-import {ActivatedRoute} from "@angular/router";
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-const { Dropbox } = require('dropbox');
+
+/*const { Dropbox } = require('dropbox');*/
 
 @Injectable({
   providedIn: 'root'
@@ -12,25 +11,31 @@ const { Dropbox } = require('dropbox');
 
 export class DataService {
   files = [];
-  stream;
+  stream = null;
   dbx;
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.stream = new BehaviorSubject(this.files);
-    this.dbx = new Dropbox({ accessToken: localStorage.getItem('token')});
-    console.error('Dbx:', this.dbx)
-  }
-  getFiles(path){
-    if (path == "/") {
-      path = ""
+  token;
+  constructor() {
+    if(localStorage.getItem('token')){
+      this.token = localStorage.getItem('token')
     }
-    console.error('Path:', path);
+    const Dropbox = require('dropbox').Dropbox;
+    this.stream = new BehaviorSubject(this.files);
+    console.log('DATA FILES: ' ,this.stream);
+    this.dbx = new Dropbox({ accessToken: this.token});
+    console.error('Dbx:', this.token);
+  }
+
+  getFiles(path): Observable<any> {
+    if (path === "/") {
+      path = "";
+    }
     this.dbx.filesListFolder({path: path})
-      .then(function(response) {
+      .then((response) => {
         this.stream.next(response.entries);
-        console.log('Data response:', response.entries)
+        console.log(response.entries);
       })
       .catch(function(error) {
-        console.log('Error:', error);
+        console.error(error);
       });
     return this.stream;
   }

@@ -27,8 +27,8 @@ import {UploadService} from "./upload.service";
 import {Interceptor} from "./interceptor";
 
 const appRoutes: Routes = [
-  {path:'login', component: LoginComponent},
   {path:'', canActivate:[AuthService], component: ListComponent},
+  {path:'login', component: LoginComponent},
   {path:'**', canActivate:[AuthService], component: ListComponent},
 ];
 

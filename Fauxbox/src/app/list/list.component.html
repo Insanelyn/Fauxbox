@@ -8,17 +8,13 @@
   <div class="col-sm-6">
     <ul class="container" id="main">
       <div class="list-group">
-        <li class="list-group-item d-flex w-100 justify-content-between">
-
-        </li>
-        <li class="list-group-item d-flex w-100 justify-content-between">
-
-      </li>
-        <li class="list-group-item d-flex w-100 justify-content-between">
-          <div class="col-sm-4"><span class="fa fa-ambulance"></span></div>
-          <div class="col-sm-4">datum</div>
-          <div class="col-sm-4">storlek</div>
-          <span class="fa fa-star"></span>
+        <li *ngFor="let file of files" class="list-group-item d-flex w-100 justify-content-between">
+            <p *ngIf="file['.tag'] ==='folder'">
+              {{ file.name }}
+            </p>
+            <p *ngIf="file['.tag']!=='folder'">
+              {{ file.name }} {{ file.size }} {{ file.client_modified }}
+            </p>
         </li>
       </div>
     </ul>
