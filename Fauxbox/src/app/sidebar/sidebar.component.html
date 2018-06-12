@@ -1,6 +1,4 @@
 <input type="search" placeholder="search...">
 
-<div ng-controller = "myCtrl">
-  <input type="file" file-model = "myFile"/>
-  <button ng-click = "uploadFile()">upload me</button>
-</div>
+<input type="file" id="file" (change)="upLoadFile($event)" class="bg-primary text-center inputfile"/>
+<label for="file">Upload</label>

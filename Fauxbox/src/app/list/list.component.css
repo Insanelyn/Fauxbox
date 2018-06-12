@@ -1,12 +1,14 @@
-
+p{
+  display: flex;
+  align-items: center;
+}
 a{
  text-decoration: none;
-  color: #00193e;
+  color: #00ceff;
 }
 img {
   width:14em;
   height:7em;
-  margin: 1em;
 }
 .breadcrumb{
   background-color: rgba(0, 207, 255, 0.04);
@@ -27,8 +29,13 @@ app-nav{
   justify-content:space-around;
 }
 i{
-  color: #00ceff;;
+  color: #00ceff;
+  margin-right: 10px;
 }
-span{
-  margin: 0 5px 0 5px;
+.fa-file, .fa-folder{
+ font-size: 45px;
+}
+li>p{
+  display: flex;
+  justify-content: space-between;
 }

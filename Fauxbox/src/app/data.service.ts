@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import "isomorphic-fetch";
 import {BehaviorSubject, Observable} from 'rxjs';
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class DataService {
   stream = null;
   dbx;
   token;
-  constructor() {
+  constructor(private domSanitizer: DomSanitizer) {
     if(localStorage.getItem('token')){
       this.token = localStorage.getItem('token')
     }
@@ -50,4 +51,23 @@ export class DataService {
       });
     return this.stream;
   }
+  downloadFile(file) {
+    console.log(file);
+    this.dbx.filesDownload({path: file})
+      .then((data) => {
+        console.log(data);
+        const bloburl = URL.createObjectURL((<any>data).fileBlob);
+        this.domSanitizer.bypassSecurityTrustUrl(bloburl);
+        const fileurl = document.createElement('a');
+        fileurl.setAttribute('href', bloburl);
+        fileurl.setAttribute('download', data.name);
+        fileurl.click();
+
+// this.domSanitizer.bypassSecurityTrustUrl(url);
+      })
+      .catch((error_message) => {
+        console.error(error_message);
+      });
+  }
+
 }

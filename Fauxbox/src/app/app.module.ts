@@ -25,6 +25,7 @@ import {DataService} from "./data.service";
 import {FirebaseService} from "./firebase.service";
 import {UploadService} from "./upload.service";
 import {Interceptor} from "./interceptor";
+import { StarComponent } from './star/star.component';
 
 const appRoutes: Routes = [
   {path:'', canActivate:[AuthService], component: ListComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     DetailsComponent,
     NavComponent,
     SidebarComponent,
-    LoginComponent
+    LoginComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,
