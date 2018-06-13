@@ -9,7 +9,8 @@ ul>li{
   margin-top: 1em;
   }
 li>a {
-  color: #e27508;
+  color: #000000;
+  font-weight: 300;
 }
 button{
   margin: 30%;
