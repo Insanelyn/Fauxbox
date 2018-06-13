@@ -18,14 +18,17 @@ export class AuthService implements CanActivate {
     }
   }
 
+
+
 login(){
     const authUrl = 'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=783ptecvulgyh5q&redirect_uri=http://localhost:4200/login';
     return window.location.href = authUrl;
   }
+  // Navigates user to login
+
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('token'); // Removes your token but changes remain
     this.router.navigate(['login']);
-    console.log('LOGOUT', localStorage.getItem('token'));
 
   }
 }

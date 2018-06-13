@@ -20,6 +20,7 @@
 
             <p *ngIf="file['.tag'] ==='file'">
               <span>
+                <!-- The files path -->
                 <img (click)="fileClicked(file.path_lower)" style="max-width: 50px; max-height: 50px" class="img-responsive img-rounded"
                      *ngIf="file.filetype === 'image'" [src]=sanitize(file.thumbnail)>
                <a (click)="fileClicked(file.path_lower)"><i *ngIf="file.filetype === 'text'" class="fa fa-file"></i>{{ file.name }}</a>

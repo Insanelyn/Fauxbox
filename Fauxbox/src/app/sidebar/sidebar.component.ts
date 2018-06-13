@@ -20,9 +20,9 @@ export class SidebarComponent implements OnInit {
     this.fileList = event.target.files;
     const file = this.fileList[0];
     const urlPath = url + '/' + file.name;
-    this.dataService.dbx.filesUpload({ path: urlPath, contents: file })
+    this.dataService.dbx.filesUpload({ path: urlPath, contents: file }) // Dropbox's own funcrtion
       .then(() => {
-        this.dataService.getFiles(url);
+        this.dataService.getFiles(url); //Körs endast för att rendera om
       })
       .catch((error) => {
         console.log("error", error)

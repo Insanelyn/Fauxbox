@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
-import { RowComponent } from './row/row.component';
 import { UploadComponent } from './breadcrumbs/breadcrumbs.component';
-import { DetailsComponent } from './details/details.component';
 import { NavComponent } from './nav/nav.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
@@ -33,13 +31,13 @@ const appRoutes: Routes = [
   {path:'**', canActivate:[AuthService], component: ListComponent},
 ];
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    RowComponent,
     UploadComponent,
-    DetailsComponent,
     NavComponent,
     SidebarComponent,
     LoginComponent,

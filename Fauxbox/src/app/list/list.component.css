@@ -45,3 +45,10 @@
     margin: 2em;
     width: 19em;
   }
+
+  a:hover {
+
+    cursor: pointer;
+    color: #00ceff;
+
+  }

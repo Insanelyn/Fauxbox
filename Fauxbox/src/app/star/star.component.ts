@@ -29,11 +29,9 @@ export class StarComponent implements OnInit {
     this.stared = !this.stared;
     if (this.stared) {
       localStorage.setItem(this.staredItem, 'stared');
-      console.log(`${this.staredItem} = stared`);
     }
     else if (!this.stared) {
-      localStorage.removeItem(this.staredItem);
-      console.log(`${this.staredItem} = not stared anymore`);
+      localStorage.removeItem(this.staredItem); //Makes stars clickable
     }
   }
 

@@ -15,28 +15,28 @@ export class UploadComponent implements OnInit {
 
 
   ngOnInit() {
-  this.activatedRoute.url.subscribe((path)=> {
+  this.activatedRoute.url.subscribe(()=> {
       this.paths = this.getPaths()
     })
   }
 
   getPaths() {
+    // Hanterar en sträng som endast innegåller en "/"
     if (!this.router.url || this.router.url === '/') {
-      return ['']
+      return [''] //
     }
+    // Hanterar en sträng som är formaterad som en URL
     return this.router.url.split('/');
 
   }
   getPathName(url) {
-    if(!url) return 'Home';
+    if(!url) return 'Home'; // Om inte URL har ett värde returneras home annars returneras ett decodat URL.
     return decodeURI(url);
   }
 
   getPath(path){
     const index = this.paths.indexOf(path);
-    const a = this.paths.slice(0, index+1).reduce((a, b) =>  `${a}/${b}`, '');
+    const a = this.paths.slice(0, index+1).reduce((a, b) =>  `${a}/${b}`, ''); 
     return decodeURI(a);
   }
-
-
 }

@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
     private dataService: DataService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer) {}
+    private sanitizer: DomSanitizer) {} //file blob, angular security.
 
   ngOnInit() {
     this.activatedRoute.url.subscribe(() =>{
@@ -47,13 +47,13 @@ export class ListComponent implements OnInit {
       sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
       i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-  }
+  } // Formats sizes
   timeStampFix(string){
     let str = string;
     let res = str.split('T').join(' ');
     res = res.split('Z').join(' ');
     return res;
-  }
+  } // Formats time
   sanitize(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
@@ -61,5 +61,6 @@ export class ListComponent implements OnInit {
   fileClicked(item) {
     this.dataService.downloadFile(item);
   }
+  // Connected to HTML
 
 }
