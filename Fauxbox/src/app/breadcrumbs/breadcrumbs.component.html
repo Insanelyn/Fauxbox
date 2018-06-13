@@ -1,0 +1,4 @@
+<nav><ol class="breadcrumb">
+  <i class="fa fa-home"></i>
+  <a routerLink={{getPath(path)}} *ngFor="let path of paths"> {{getPathName(path) + '/'}}</a>
+</ol></nav>

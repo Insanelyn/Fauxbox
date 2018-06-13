@@ -11,7 +11,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class ListComponent implements OnInit {
 
   files = [];
-  paths = [];
 
   constructor(
     private dataService: DataService,
@@ -39,9 +38,6 @@ export class ListComponent implements OnInit {
         }
       });
     });
-    this.activatedRoute.url.subscribe((path)=> {
-      this.paths = this.getPaths()
-    })
   }
 
   formatBytes(bytes,decimals) {
@@ -60,23 +56,6 @@ export class ListComponent implements OnInit {
   }
   sanitize(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
-  }
-  getPaths() {
-    if (!this.router.url || this.router.url === '/') {
-      return ['']
-    }
-    return this.router.url.split('/');
-  /*  !url*/
-  }
-  getPathName(url) {
-    if(!url) return 'Home';
-    return decodeURI(url);
-  }
-
-  getPath(path){
-    const index = this.paths.indexOf(path);
-    const a = this.paths.slice(0, index+1).reduce((a, b) =>  `${a}/${b}`, '');
-    return a;
   }
 
   fileClicked(item) {

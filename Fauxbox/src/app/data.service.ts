@@ -25,7 +25,7 @@ export class DataService {
     if (path === "/") {
       path = "";
     }
-    this.dbx.filesListFolder({path: path})
+    this.dbx.filesListFolder({path: decodeURI(path)})
       .then((response) => {
         this.stream.next(response.entries);
         Promise.all(response.entries.map((entry) => {

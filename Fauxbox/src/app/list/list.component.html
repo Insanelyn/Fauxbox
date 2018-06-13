@@ -1,10 +1,7 @@
 <img src="../../assets/logowhite.png">
-<nav><ol class="breadcrumb">
-<!--  <li class="breadcrumb-item active"><a href=""><i class="fa fa-home"></i> Home</a></li>-->
-  <i class="fa fa-home"></i>
-  <a routerLink={{getPath(path)}} *ngFor="let path of paths"> {{getPathName(path) + '/'}}</a>
-</ol></nav>
+<input type="search" placeholder="search..." id="search">
 
+<app-upload></app-upload>
 <div class="row container-fluid">
   <app-nav class="col-sm-2"></app-nav>
   <div class="col-sm-8">

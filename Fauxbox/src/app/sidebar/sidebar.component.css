@@ -1,3 +1,18 @@
+
+
+.container {
+  box-shadow: 2px 4px rgba(0, 147, 226, 0.05);
+  border-radius: 2%;
+  margin-top: 0;
+  padding: 3%;
+}
+
+
+h4 {
+  padding: 3%;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -14,7 +29,7 @@
   padding:0.75rem 1.25rem;
   margin-bottom:0;
   background-color:#007bff;
-  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+  border-radius: 5px;
   color:white;
   text-align: center;
   cursor: pointer;
@@ -25,3 +40,11 @@
   background-color:#007bff;
   color:white;
 }
+
+#button {
+  margin-top: 10%;
+  padding: 2%;
+  margin-bottom: 20%;
+}
+
+

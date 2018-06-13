@@ -23,7 +23,7 @@ login(){
     return window.location.href = authUrl;
   }
   logout(){
-    localStorage.clear();
+    localStorage.removeItem('token');
     this.router.navigate(['login']);
     console.log('LOGOUT', localStorage.getItem('token'));
 
